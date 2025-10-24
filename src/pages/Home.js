@@ -7,8 +7,8 @@ const Home = () => {
       <div className="prismatic-container">
         <PrismaticBurst
           animationType="rotate"
-          intensity={2}
-          speed={0.5}
+          intensity={1}
+          speed={0.8}
           distort={0}
           paused={false}
           offset={{ x: 0, y: 0 }}
@@ -21,30 +21,45 @@ const Home = () => {
       
       <nav className="navbar">
         <div className="navbar-container">
-          <div className="navbar-logo">
+          <a href="/" className="navbar-logo">
             <span className="logo-icon">✦</span>
             Zenkolab
-          </div>
+          </a>
           <ul className="navbar-menu">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#docs">Docs</a></li>
+            <li><a href="#features">Features</a></li>
           </ul>
+          <div className="navbar-auth">
+            <button className="btn-signin">Sign in</button>
+            <button className="btn-signup">Sign up</button>
+          </div>
         </div>
       </nav>
 
       <div className="content">
-        <div className="badge">
-          <span className="badge-icon">✦</span>
-          New Background
-        </div>
-        
         <div className="hero">
-          <h1>A burst of dancing colors, beautifully unleashed</h1>
+          <h1>Un oeil sur demain,<span className="highlight">dès aujourd'hui.</span></h1>
           
-          <div className="cta-buttons">
-            <button className="btn btn-primary">Get Started</button>
-            <button className="btn btn-secondary">Learn More</button>
+          <p className="hero-subtitle">
+            Explore our cutting-edge dashboard, delivering high-quality solutions tailored to your needs.<br />
+            Elevate your experience with top-tier features and services.
+          </p>
+          
+          <div className="email-section">
+            <input 
+              type="email" 
+              placeholder="Your email address" 
+              className="email-input"
+            />
+            <button className="btn btn-primary">Start now</button>
           </div>
+          
+          <p className="terms-text">
+            By clicking "Start now" you agree to our <a href="#terms">Terms & Conditions</a>.
+          </p>
+        </div>
+
+        <div className="image-placeholder">
+          {/* Add your image here - replace with an img tag or image component */}
         </div>
       </div>
     </div>
