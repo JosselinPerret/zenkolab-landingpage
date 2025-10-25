@@ -239,6 +239,90 @@
   border-bottom-color: rgba(255, 255, 255, 0.6);
 }
 
+/* Logo Loop Section */
+.logo-loop-section {
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 4rem;
+  animation: slideUp 0.8s ease-out 0.5s backwards;
+  overflow: hidden;
+}
+
+.logo-loop-title {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  margin: 0 0 2rem 0;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.logo-loop-section .logoloop.logo-loop-white {
+  overflow: hidden !important;
+}
+
+.logo-loop-white .logoloop__item {
+  color: white;
+  font-size: 0 !important;
+}
+
+.logo-loop-white .logoloop__node {
+  color: white;
+  font-size: 60px;
+}
+
+.logo-loop-white .logoloop__item img {
+  filter: brightness(0) invert(1);
+}
+
+.logo-loop-white .logoloop__item::before,
+.logo-loop-white .logoloop__item::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Hide all text nodes in gaps */
+.logo-loop-white .logoloop__list::after,
+.logo-loop-white .logoloop__list::before {
+  display: none !important;
+}
+
+/* Card Swap Section */
+.card-swap-section {
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 4rem;
+  animation: slideUp 0.8s ease-out 0.5s backwards;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-swap-text {
+  flex: 1;
+  padding-right: 4rem;
+  z-index: 1;
+  animation: slideUp 0.8s ease-out 0.6s backwards;
+}
+
+.card-swap-text h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  max-width: 400px;
+}
+
+.card-swap-text p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  line-height: 1.6;
+}
+
 /* CTA Buttons */
 .cta-buttons {
   display: flex;
@@ -391,6 +475,34 @@
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
   }
+
+  .logo-loop-section {
+    margin-top: 2.5rem;
+  }
+
+  .logo-loop-title {
+    font-size: 0.85rem;
+  }
+
+  .card-swap-section {
+    margin-top: 2rem;
+    height: 500px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card-swap-text {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .card-swap-text h2 {
+    font-size: 2rem;
+  }
+
+  .card-swap-text p {
+    font-size: 0.95rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -465,5 +577,33 @@
     height: 200px;
     margin-top: 1rem;
     margin-bottom: 1rem;
+  }
+
+  .logo-loop-section {
+    margin-top: 2rem;
+  }
+
+  .logo-loop-title {
+    font-size: 0.8rem;
+  }
+
+  .card-swap-section {
+    margin-top: 1.5rem;
+    height: 400px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card-swap-text {
+    padding-right: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-swap-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .card-swap-text p {
+    font-size: 0.9rem;
   }
 }

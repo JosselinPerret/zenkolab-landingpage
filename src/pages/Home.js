@@ -1,5 +1,16 @@
 import PrismaticBurst from '../components/PrismaticBurst';
+import CardNav from '../components/CardNav';
+import LogoLoop from '../components/LogoLoop';
+import logo from '../assets/logo.png';
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from 'react-icons/si';
 import './Home.css';
+
+const techLogos = [
+  { node: <SiReact />, title: "React", href: "https://react.dev" },
+  { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
+  { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
+  { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
+];
 
 const Home = () => {
   return (
@@ -19,21 +30,44 @@ const Home = () => {
         />
       </div>
       
-      <nav className="navbar">
-        <div className="navbar-container">
-          <a href="/" className="navbar-logo">
-            <span className="logo-icon">✦</span>
-            Zenkolab
-          </a>
-          <ul className="navbar-menu">
-            <li><a href="#features">Features</a></li>
-          </ul>
-          <div className="navbar-auth">
-            <button className="btn-signin">Sign in</button>
-            <button className="btn-signup">Sign up</button>
-          </div>
-        </div>
-      </nav>
+      <CardNav
+        logo={logo}
+        logoAlt="Zenkolab"
+        items={[
+          {
+            label: 'Features',
+            bgColor: '#0D0716',
+            textColor: '#fff',
+            links: [
+              { label: 'Overview', ariaLabel: 'Features Overview' },
+              { label: 'Integrations', ariaLabel: 'Features Integrations' }
+            ]
+          },
+          {
+            label: 'Pricing',
+            bgColor: '#170D27',
+            textColor: '#fff',
+            links: [
+              { label: 'Plans', ariaLabel: 'Pricing Plans' },
+              { label: 'Enterprise', ariaLabel: 'Pricing Enterprise' }
+            ]
+          },
+          {
+            label: 'About',
+            bgColor: '#271E37',
+            textColor: '#fff',
+            links: [
+              { label: 'Company', ariaLabel: 'About Company' },
+              { label: 'Careers', ariaLabel: 'About Careers' }
+            ]
+          }
+        ]}
+        baseColor="rgba(255,255,255,0.02)"
+        menuColor="#fff"
+        buttonBgColor="#fff"
+        buttonTextColor="#000"
+        ease="power3.out"
+      />
 
       <div className="content">
         <div className="hero">
@@ -60,6 +94,23 @@ const Home = () => {
 
         <div className="image-placeholder">
           {/* Add your image here - replace with an img tag or image component */}
+        </div>
+
+        <div className="logo-loop-section">
+          <p className="logo-loop-title">Built with modern technologies</p>
+          <LogoLoop
+            logos={techLogos}
+            speed={30}
+            direction="left"
+            logoHeight={60}
+            gap={60}
+            pauseOnHover
+            scaleOnHover
+            fadeOut
+            fadeOutColor="rgb(0, 0, 0)"
+            ariaLabel="Technology stack"
+            className="logo-loop-white"
+          />
         </div>
       </div>
     </div>
