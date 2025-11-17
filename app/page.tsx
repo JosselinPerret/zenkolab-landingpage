@@ -2,6 +2,7 @@
 
 import { HeroSection } from "@/components/blocks/hero-section"
 import { Navbar1 } from "@/components/blocks/navbar1"
+import { GlowingEffectDemo } from "@/components/ui/glowing-effect-demo"
 import { Icons } from "@/components/ui/icons"
 import { Book, Sunset, Trees, Zap } from "lucide-react"
 
@@ -99,6 +100,11 @@ export default function Home() {
           alt: "Zenkolab Preview",
         }}
       />
+      <section className="py-16 px-6">
+        <div className="max-w-7xl mx-auto">
+          <GlowingEffectDemo />
+        </div>
+      </section>
     </main>
   )
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRightIcon } from "lucide-react";
 import { Mockup, MockupFrame } from "@/components/ui/mockup";
@@ -77,14 +78,26 @@ export function HeroSection({
 
           {/* Actions */}
           <div className="relative z-10 flex animate-appear justify-center gap-4 opacity-0 delay-300">
-            {actions.map((action, index) => (
-              <Button key={index} variant={action.variant} size="lg" asChild>
-                <a href={action.href} className="flex items-center gap-2">
-                  {action.icon}
-                  {action.text}
-                </a>
-              </Button>
-            ))}
+            {actions.map((action, index) => {
+              if (index === 0) {
+                return (
+                  <RainbowButton key={index} asChild>
+                    <a href={action.href} className="flex items-center gap-2">
+                      {action.icon}
+                      {action.text}
+                    </a>
+                  </RainbowButton>
+                );
+              }
+              return (
+                <Button key={index} variant={action.variant} size="lg" asChild>
+                  <a href={action.href} className="flex items-center gap-2">
+                    {action.icon}
+                    {action.text}
+                  </a>
+                </Button>
+              );
+            })}
           </div>
 
           {/* Image with Glow */}
