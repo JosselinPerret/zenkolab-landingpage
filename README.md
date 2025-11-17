@@ -1,170 +1,255 @@
-# Zenkolab - Innovation and Technology Hub
+# Zenkolab Landing Page
 
-A modern React-based landing page featuring an interactive WebGL-powered background with the PrismaticBurst animation component.
+A modern, responsive landing page built with Next.js, React, TypeScript, and Tailwind CSS. Features a beautiful hero section component with animations and theme support.
 
-## 🎯 Overview
+## 📋 Project Setup
 
-Zenkolab is a cutting-edge landing page built with React and featuring a custom WebGL animation component. The site showcases an innovative, visually striking front page with smooth animations and modern design patterns.
+This project uses the following technologies:
 
-## ✨ Features
-
-- **Interactive WebGL Background**: Custom PrismaticBurst component using OGL (WebGL renderer)
-- **Responsive Design**: Fully responsive layout for desktop and mobile devices
-- **Smooth Animations**: CSS animations with entrance effects
-- **Modern Tech Stack**: Built with React 18 and Create React App
-- **Production Ready**: Includes .htaccess for proper deployment and routing
-
-## 🛠️ Tech Stack
-
-- **Frontend Framework**: [React](https://react.dev/) 18.2.0
-- **Build Tool**: [Create React App](https://create-react-app.dev/) (react-scripts 5.0.1)
-- **WebGL Renderer**: [OGL](https://ogl.dev/) 1.0.0
-- **Styling**: CSS with responsive design
-
-## 📋 Prerequisites
-
-- Node.js (v14 or higher)
-- npm (v6 or higher) or yarn
+- **Framework**: Next.js 14+
+- **UI Library**: React 18
+- **Styling**: Tailwind CSS 3
+- **Language**: TypeScript
+- **Components**: shadcn/ui components
+- **Theming**: next-themes (Light/Dark mode)
+- **Icons**: lucide-react
 
 ## 🚀 Getting Started
 
+### Prerequisites
+
+- Node.js 18+ installed
+- npm or yarn package manager
+
 ### Installation
 
-1. Clone the repository:
-```bash
-git clone https://github.com/JosselinPerret/zenkolab-landingpage.git
-cd zenkolab-landingpage
-```
-
-2. Install dependencies:
+1. Install dependencies:
 ```bash
 npm install
 ```
 
-### Development
-
-Start the development server:
+2. Run the development server:
 ```bash
-npm start
+npm run dev
 ```
 
-The application will open at `http://localhost:3000` in your default browser. The page will reload when you make changes.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ### Building for Production
 
-Build the application for production:
 ```bash
 npm run build
+npm start
 ```
-
-This creates an optimized production build in the `build/` folder.
 
 ## 📁 Project Structure
 
 ```
 zenkolab-landingpage/
-├── public/
-│   ├── index.html
-│   └── favicon.ico (optional)
-├── src/
-│   ├── components/
-│   │   ├── PrismaticBurst.js      # WebGL burst animation component
-│   │   └── PrismaticBurst.css     # Component styles
-│   ├── pages/
-│   │   ├── Home.js               # Landing page
-│   │   └── Home.css              # Page styles
-│   ├── App.js                    # Main application component
-│   ├── App.css                   # Global styles
-│   ├── index.js                  # React entry point
-│   └── index.css                 # Global styles
-├── .gitignore
-├── .htaccess                     # Apache routing configuration
-├── package.json
-└── README.md
+├── app/
+│   ├── layout.tsx          # Root layout with theme provider
+│   ├── page.tsx            # Home page with hero section demo
+│   └── globals.css         # Global styles with Tailwind directives
+├── components/
+│   ├── ui/                 # Reusable UI components
+│   │   ├── button.tsx
+│   │   ├── badge.tsx
+│   │   ├── glow.tsx
+│   │   ├── mockup.tsx
+│   │   └── icons.tsx
+│   └── blocks/             # Complex components
+│       └── hero-section.tsx
+├── lib/
+│   └── utils.ts            # Utility functions (cn classname merger)
+├── tailwind.config.js      # Tailwind CSS configuration
+├── tsconfig.json           # TypeScript configuration
+└── package.json            # Project dependencies
 ```
 
-## 🎨 Key Components
+## 🎨 Component Directory Structure
 
-### PrismaticBurst
+### Why `/components/ui`?
 
-Interactive WebGL-based animation component featuring:
+The `/components/ui` directory is a standard convention in shadcn/ui projects:
 
-- **Animation Types**: 
-  - `rotate`: 2D rotation animation
-  - `rotate3d`: 3D rotation animation
-  - `hover`: Mouse-interactive hover effect
+- **Separation of Concerns**: Keeps reusable UI primitives separate from business logic
+- **Easy Discovery**: All atomic components in one place
+- **Scalability**: Makes it simple to add new components
+- **Import Paths**: Clean and consistent import paths using path aliases
+- **Community Standard**: Follows established patterns in the React ecosystem
 
-- **Customizable Properties**:
-  - `intensity`: Control the brightness (default: 2)
-  - `speed`: Animation playback speed (default: 0.5)
-  - `distort`: Distortion effect intensity (default: 0)
-  - `colors`: Array of hex colors for the gradient (default: ['#ff007a', '#4d3dff', '#ffffff'])
-  - `rayCount`: Number of rays to display (default: 24)
-  - `hoverDampness`: Dampening effect for hover interaction (default: 0.25)
-  - `mixBlendMode`: Canvas blend mode (default: 'lighten')
-  - `paused`: Pause/resume animation (default: false)
-  - `offset`: X/Y offset for the animation center
+### Component Organization
 
-### Home
+- **`/components/ui`**: Atomic components (Button, Badge, etc.) - building blocks
+- **`/components/blocks`**: Complex sections (HeroSection, etc.) - composed from UI components
+- **`/lib`**: Utility functions and helpers
 
-Landing page component that displays:
-- The PrismaticBurst animation background
-- Hero section with title and tagline
-- Responsive layout
+## 🎯 Key Features
 
-## 📝 Available Scripts
+### Hero Section Component
 
-| Command | Description |
-|---------|-------------|
-| `npm start` | Runs the app in development mode |
-| `npm run build` | Builds the app for production |
-| `npm test` | Launches the test runner |
-| `npm run eject` | Ejects from Create React App configuration |
-| `npm run dev` | Alias for npm start |
+The `HeroSection` component includes:
 
-## 🌐 Deployment
+- **Responsive Design**: Adapts beautifully from mobile to desktop
+- **Theme Support**: Automatically switches between light and dark images
+- **Animations**: Staggered entrance animations for visual appeal
+- **Badge**: Optional badge with action link
+- **Actions**: Multiple call-to-action buttons with variants
+- **Mockup Frame**: Displays preview images with glassmorphic styling
+- **Glow Effect**: Dynamic glow backdrop for visual depth
 
-### Important: .htaccess File
+### Usage Example
 
-The `.htaccess` file is included in the public directory and ensures proper routing when deployed on Apache servers.
+```tsx
+import { HeroSection } from "@/components/blocks/hero-section";
+import { Icons } from "@/components/ui/icons";
 
-### Manual Deployment
-
-1. Run `npm run build`
-2. Upload the contents of the `build/` folder to your hosting provider
-3. Copy the `.htaccess` file to the deployment directory
-
-## 🚀 Customization
-
-### Modifying the PrismaticBurst Animation
-
-Edit `src/pages/Home.js` to adjust the animation parameters:
-
-```javascript
-<PrismaticBurst
-  animationType="rotate3d"    // Change animation type
-  intensity={2}              // Adjust brightness
-  speed={0.5}               // Control speed
-  colors={['#ff007a', '#4d3dff', '#ffffff']}  // Change colors
-  rayCount={24}             // Adjust ray count
-  // ... other props
-/>
+export function HeroDemo() {
+  return (
+    <HeroSection
+      badge={{
+        text: "New feature",
+        action: {
+          text: "Learn more",
+          href: "/docs",
+        },
+      }}
+      title="Build faster"
+      description="With beautiful components"
+      actions={[
+        {
+          text: "Get Started",
+          href: "/docs",
+          variant: "default",
+        },
+        {
+          text: "GitHub",
+          href: "https://github.com",
+          variant: "glow",
+          icon: <Icons.gitHub className="h-5 w-5" />,
+        },
+      ]}
+      image={{
+        light: "https://example.com/light.png",
+        dark: "https://example.com/dark.png",
+        alt: "Preview",
+      }}
+    />
+  );
+}
 ```
 
-### Adding New Pages
+## 🎨 Theming
 
-1. Create a new file in `src/pages/`
-2. Create a corresponding CSS file
-3. Update `src/App.js` to include routing (when React Router is added)
+The project includes a comprehensive theming system:
 
-## 📄 License
+### CSS Variables
 
-See the LICENSE file for details.
+All colors are defined as CSS custom properties in `globals.css`:
 
-## 👤 Author
+- `--background`, `--foreground`: Main colors
+- `--primary`, `--primary-foreground`: Primary action colors
+- `--secondary`, `--secondary-foreground`: Secondary colors
+- `--accent`, `--accent-foreground`: Accent colors
+- `--brand`, `--brand-foreground`: Brand colors
+- And more...
 
-[Josselin Perret](https://github.com/JosselinPerret)
+### Theme Provider
 
-## 📧 Contact
+Dark mode is handled by `next-themes` with the theme provider in the root layout:
 
-For more information about Zenkolab, visit the repository on GitHub.
+```tsx
+<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+  {children}
+</ThemeProvider>
+```
+
+Users can toggle themes using:
+
+```tsx
+import { useTheme } from "next-themes";
+
+export function ThemeToggle() {
+  const { theme, setTheme } = useTheme();
+  // ...
+}
+```
+
+## 📦 Dependencies
+
+### Core
+- `next`: React framework
+- `react` & `react-dom`: UI library
+- `typescript`: Type safety
+
+### UI & Styling
+- `tailwindcss`: Utility-first CSS
+- `class-variance-authority`: Component variant management
+- `@radix-ui/react-slot`: Component composition utility
+- `lucide-react`: Icon library
+
+### Theme & Utils
+- `next-themes`: Theme management
+- `clsx`: Classname merging utility
+
+## 🛠️ Configuration Files
+
+### `tailwind.config.js`
+
+Configured with:
+- Custom color palette with CSS variables
+- Extended theme values (spacing, sizes)
+- Animation keyframes (appear, appear-zoom)
+- Custom utilities for animation delays
+
+### `tsconfig.json`
+
+- Path aliases: `@/*` points to root directory
+- Strict mode enabled
+- Modern JavaScript target (ES2020)
+
+### `next.config.js`
+
+Basic Next.js configuration with React strict mode enabled.
+
+## 🚀 Deployment
+
+This project is ready to deploy on:
+
+- **Vercel**: Recommended for Next.js apps
+- **Azure Static Web Apps**: Included workflow in `.github/workflows`
+- **Netlify**: Standard Next.js deployment
+- **Any Node.js hosting**: Build and run commands in package.json
+
+### Deploy to Vercel
+
+```bash
+npm i -g vercel
+vercel
+```
+
+## 📚 Resources
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [React Documentation](https://react.dev)
+- [shadcn/ui Components](https://ui.shadcn.com)
+- [Lucide Icons](https://lucide.dev)
+
+## 📝 License
+
+This project is open source and available under the MIT License.
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📞 Support
+
+For issues, questions, or suggestions, please open an issue on GitHub.
