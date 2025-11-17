@@ -1,0 +1,12 @@
+{
+  "navigationFallback": {
+    "rewrite": "/index.html"
+  },
+  "redirects": [
+    {
+      "route": "/",
+      "to": "https://www.zenkolab.dev",
+      "statusCode": 301
+    }
+  ]
+}
