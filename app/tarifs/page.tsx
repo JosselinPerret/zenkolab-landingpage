@@ -1,11 +1,7 @@
 "use client"
 
-import { HeroSection } from "@/components/blocks/hero-section"
 import { Navbar1 } from "@/components/blocks/navbar1"
-import { GlowingEffectDemo } from "@/components/ui/glowing-effect-demo"
-import { LogoCloud } from "@/components/ui/logo-cloud-2"
 import { StackedCircularFooter } from "@/components/ui/stacked-circular-footer"
-import { Icons } from "@/components/ui/icons"
 import { Book, Sunset, Trees, Zap } from "lucide-react"
 
 const navbarData = {
@@ -75,34 +71,28 @@ const navbarData = {
   },
 };
 
-export default function Home() {
+export default function TarifsPage() {
   return (
-    <main>
+    <>
       <Navbar1 {...navbarData} />
-      <HeroSection
-        badge={{
-          text: "200K+",
-          suffix: "dossiers patient déjà analysés",
-          action: null,
-        }}
-        title="Un oeil sur demain, dès aujourd'hui."
-        description="Concentrez votre temps sur des cas qui comptent vraiment."
-        actions={[
-          {
-            text: "Demander une démo",
-            href: "/demo",
-            variant: "default",
-          },
-        ]}
-        image={{
-          light: "/mookkup.png",
-          dark: "/mookkup.png",
-          alt: "Zenkolab Preview",
-        }}
-      />
-      <GlowingEffectDemo />
-      <LogoCloud />
+      <main className="min-h-screen">
+        <section className="py-20 px-6">
+          <div className="max-w-7xl mx-auto">
+            <h1 className="text-5xl font-bold mb-6">Tarifs</h1>
+            <p className="text-xl text-muted-foreground mb-12">
+              Choisissez le plan adapté à vos besoins
+            </p>
+            {/* Pricing plans will go here */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="p-6 rounded-lg border border-border">
+                <h3 className="text-xl font-semibold mb-2">Plan Starter</h3>
+                <p className="text-muted-foreground">Description du plan</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
       <StackedCircularFooter />
-    </main>
+    </>
   )
 }

@@ -1,11 +1,7 @@
 "use client"
 
-import { HeroSection } from "@/components/blocks/hero-section"
 import { Navbar1 } from "@/components/blocks/navbar1"
-import { GlowingEffectDemo } from "@/components/ui/glowing-effect-demo"
-import { LogoCloud } from "@/components/ui/logo-cloud-2"
 import { StackedCircularFooter } from "@/components/ui/stacked-circular-footer"
-import { Icons } from "@/components/ui/icons"
 import { Book, Sunset, Trees, Zap } from "lucide-react"
 
 const navbarData = {
@@ -75,34 +71,35 @@ const navbarData = {
   },
 };
 
-export default function Home() {
+export default function AProposPage() {
   return (
-    <main>
+    <>
       <Navbar1 {...navbarData} />
-      <HeroSection
-        badge={{
-          text: "200K+",
-          suffix: "dossiers patient déjà analysés",
-          action: null,
-        }}
-        title="Un oeil sur demain, dès aujourd'hui."
-        description="Concentrez votre temps sur des cas qui comptent vraiment."
-        actions={[
-          {
-            text: "Demander une démo",
-            href: "/demo",
-            variant: "default",
-          },
-        ]}
-        image={{
-          light: "/mookkup.png",
-          dark: "/mookkup.png",
-          alt: "Zenkolab Preview",
-        }}
-      />
-      <GlowingEffectDemo />
-      <LogoCloud />
+      <main className="min-h-screen">
+        <section className="py-20 px-6">
+          <div className="max-w-7xl mx-auto">
+            <h1 className="text-5xl font-bold mb-6">À propos de nous</h1>
+            <p className="text-xl text-muted-foreground mb-12">
+              Découvrez notre mission et nos valeurs
+            </p>
+            <div className="grid md:grid-cols-2 gap-12">
+              <div>
+                <h2 className="text-3xl font-semibold mb-4">Notre mission</h2>
+                <p className="text-muted-foreground">
+                  Contenu de la mission de ZenkoLab à ajouter ici.
+                </p>
+              </div>
+              <div>
+                <h2 className="text-3xl font-semibold mb-4">Nos valeurs</h2>
+                <p className="text-muted-foreground">
+                  Description des valeurs de ZenkoLab à ajouter ici.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
       <StackedCircularFooter />
-    </main>
+    </>
   )
 }

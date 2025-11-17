@@ -1,11 +1,7 @@
 "use client"
 
-import { HeroSection } from "@/components/blocks/hero-section"
 import { Navbar1 } from "@/components/blocks/navbar1"
-import { GlowingEffectDemo } from "@/components/ui/glowing-effect-demo"
-import { LogoCloud } from "@/components/ui/logo-cloud-2"
 import { StackedCircularFooter } from "@/components/ui/stacked-circular-footer"
-import { Icons } from "@/components/ui/icons"
 import { Book, Sunset, Trees, Zap } from "lucide-react"
 
 const navbarData = {
@@ -28,19 +24,19 @@ const navbarData = {
           title: "Fonctionnalités",
           description: "Découvrez les capacités de ZenkoLab",
           icon: <Zap className="size-5 shrink-0" />,
-          url: "/produit",
+          url: "/features",
         },
         {
           title: "Tarifs",
           description: "Choisissez le plan adapté à vos besoins",
           icon: <Book className="size-5 shrink-0" />,
-          url: "/tarifs",
+          url: "/pricing",
         },
         {
           title: "Comparaison",
           description: "Comparez ZenkoLab avec d'autres solutions",
           icon: <Trees className="size-5 shrink-0" />,
-          url: "/comparaison",
+          url: "/comparison",
         },
       ],
     },
@@ -52,7 +48,7 @@ const navbarData = {
           title: "À propos",
           description: "Qui sommes-nous et notre mission",
           icon: <Sunset className="size-5 shrink-0" />,
-          url: "/apropos",
+          url: "/about",
         },
         {
           title: "Contact",
@@ -65,9 +61,9 @@ const navbarData = {
   ],
   mobileExtraLinks: [
     { name: "Accueil", url: "/" },
-    { name: "Fonctionnalités", url: "/produit" },
-    { name: "Tarifs", url: "/tarifs" },
-    { name: "À propos", url: "/apropos" },
+    { name: "Fonctionnalités", url: "/features" },
+    { name: "Tarifs", url: "/pricing" },
+    { name: "À propos", url: "/about" },
   ],
   auth: {
     login: { text: "Nous contacter", url: "/contact" },
@@ -75,34 +71,33 @@ const navbarData = {
   },
 };
 
-export default function Home() {
+export default function ComparisonPage() {
   return (
-    <main>
+    <>
       <Navbar1 {...navbarData} />
-      <HeroSection
-        badge={{
-          text: "200K+",
-          suffix: "dossiers patient déjà analysés",
-          action: null,
-        }}
-        title="Un oeil sur demain, dès aujourd'hui."
-        description="Concentrez votre temps sur des cas qui comptent vraiment."
-        actions={[
-          {
-            text: "Demander une démo",
-            href: "/demo",
-            variant: "default",
-          },
-        ]}
-        image={{
-          light: "/mookkup.png",
-          dark: "/mookkup.png",
-          alt: "Zenkolab Preview",
-        }}
-      />
-      <GlowingEffectDemo />
-      <LogoCloud />
+      <main className="min-h-screen">
+        <section className="py-20 px-6">
+          <div className="max-w-7xl mx-auto">
+            <h1 className="text-5xl font-bold mb-6">Comparaison</h1>
+            <p className="text-xl text-muted-foreground mb-12">
+              Comparez ZenkoLab avec d'autres solutions
+            </p>
+            {/* Comparison table will go here */}
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr className="border-b">
+                    <th className="p-4 text-left">Fonctionnalité</th>
+                    <th className="p-4 text-left">ZenkoLab</th>
+                    <th className="p-4 text-left">Concurrent 1</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
       <StackedCircularFooter />
-    </main>
+    </>
   )
 }

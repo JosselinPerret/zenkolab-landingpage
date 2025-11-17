@@ -16,13 +16,13 @@ function StackedCircularFooter() {
             <a href="/" className="hover:text-primary">
               Accueil
             </a>
-            <a href="/features" className="hover:text-primary">
+            <a href="/produit" className="hover:text-primary">
               Fonctionnalités
             </a>
-            <a href="/pricing" className="hover:text-primary">
+            <a href="/tarifs" className="hover:text-primary">
               Tarifs
             </a>
-            <a href="/about" className="hover:text-primary">
+            <a href="/apropos" className="hover:text-primary">
               À propos
             </a>
             <a href="/contact" className="hover:text-primary">

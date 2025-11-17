@@ -1,11 +1,7 @@
 "use client"
 
-import { HeroSection } from "@/components/blocks/hero-section"
 import { Navbar1 } from "@/components/blocks/navbar1"
-import { GlowingEffectDemo } from "@/components/ui/glowing-effect-demo"
-import { LogoCloud } from "@/components/ui/logo-cloud-2"
 import { StackedCircularFooter } from "@/components/ui/stacked-circular-footer"
-import { Icons } from "@/components/ui/icons"
 import { Book, Sunset, Trees, Zap } from "lucide-react"
 
 const navbarData = {
@@ -75,34 +71,33 @@ const navbarData = {
   },
 };
 
-export default function Home() {
+export default function ComparaisonPage() {
   return (
-    <main>
+    <>
       <Navbar1 {...navbarData} />
-      <HeroSection
-        badge={{
-          text: "200K+",
-          suffix: "dossiers patient déjà analysés",
-          action: null,
-        }}
-        title="Un oeil sur demain, dès aujourd'hui."
-        description="Concentrez votre temps sur des cas qui comptent vraiment."
-        actions={[
-          {
-            text: "Demander une démo",
-            href: "/demo",
-            variant: "default",
-          },
-        ]}
-        image={{
-          light: "/mookkup.png",
-          dark: "/mookkup.png",
-          alt: "Zenkolab Preview",
-        }}
-      />
-      <GlowingEffectDemo />
-      <LogoCloud />
+      <main className="min-h-screen">
+        <section className="py-20 px-6">
+          <div className="max-w-7xl mx-auto">
+            <h1 className="text-5xl font-bold mb-6">Comparaison</h1>
+            <p className="text-xl text-muted-foreground mb-12">
+              Comparez ZenkoLab avec d'autres solutions
+            </p>
+            {/* Comparison table will go here */}
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr className="border-b">
+                    <th className="p-4 text-left">Fonctionnalité</th>
+                    <th className="p-4 text-left">ZenkoLab</th>
+                    <th className="p-4 text-left">Concurrent 1</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
       <StackedCircularFooter />
-    </main>
+    </>
   )
 }
