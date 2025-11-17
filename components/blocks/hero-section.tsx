@@ -20,10 +20,11 @@ interface HeroAction {
 interface HeroProps {
   badge?: {
     text: string;
-    action: {
+    suffix?: string;
+    action?: {
       text: string;
       href: string;
-    };
+    } | null;
   };
   title: string;
   description: string;
@@ -54,15 +55,22 @@ export function HeroSection({
       )}
     >
       <div className="mx-auto flex max-w-container flex-col gap-12 pt-16 sm:gap-24">
-        <div className="flex flex-col items-center gap-6 text-center sm:gap-12">
+        <div className="flex flex-col items-center gap-2 text-center sm:gap-4">
           {/* Badge */}
           {badge && (
             <Badge variant="outline" className="animate-appear gap-2">
-              <span className="text-muted-foreground">{badge.text}</span>
-              <a href={badge.action.href} className="flex items-center gap-1">
-                {badge.action.text}
-                <ArrowRightIcon className="h-3 w-3" />
-              </a>
+              <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text font-semibold text-transparent">
+                {badge.text}
+              </span>
+              {badge.suffix && (
+                <span className="text-muted-foreground">{badge.suffix}</span>
+              )}
+              {badge.action && (
+                <a href={badge.action.href} className="flex items-center gap-1">
+                  {badge.action.text}
+                  <ArrowRightIcon className="h-3 w-3" />
+                </a>
+              )}
             </Badge>
           )}
 

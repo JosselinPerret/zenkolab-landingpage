@@ -3,13 +3,14 @@
 import { HeroSection } from "@/components/blocks/hero-section"
 import { Navbar1 } from "@/components/blocks/navbar1"
 import { GlowingEffectDemo } from "@/components/ui/glowing-effect-demo"
+import { StackedCircularFooter } from "@/components/ui/stacked-circular-footer"
 import { Icons } from "@/components/ui/icons"
 import { Book, Sunset, Trees, Zap } from "lucide-react"
 
 const navbarData = {
   logo: {
     url: "/",
-    src: "/logo.svg",
+    src: "/logo.png",
     alt: "Zenkolab Logo",
     title: "zenkolab",
   },
@@ -79,11 +80,9 @@ export default function Home() {
       <Navbar1 {...navbarData} />
       <HeroSection
         badge={{
-          text: "200K+ dossiers patient déjà analysés",
-          action: {
-            text: "En savoir plus",
-            href: "/docs",
-          },
+          text: "200K+",
+          suffix: "dossiers patient déjà analysés",
+          action: null,
         }}
         title="Un oeil sur demain, dès aujourd'hui."
         description="Concentrez votre temps sur des cas qui comptent vraiment."
@@ -105,6 +104,7 @@ export default function Home() {
           <GlowingEffectDemo />
         </div>
       </section>
+      <StackedCircularFooter />
     </main>
   )
 }
