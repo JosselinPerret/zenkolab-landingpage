@@ -1,7 +1,5 @@
 import { Icons } from "@/components/ui/icons"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { Mail, Linkedin } from "lucide-react"
 
 function StackedCircularFooter() {
@@ -17,7 +15,7 @@ function StackedCircularFooter() {
               Accueil
             </a>
             <a href="/produit" className="hover:text-primary">
-              Fonctionnalités
+              Produit
             </a>
             <a href="/tarifs" className="hover:text-primary">
               Tarifs
@@ -36,7 +34,7 @@ function StackedCircularFooter() {
               className="rounded-full"
               asChild
             >
-              <a href="mailto:contact@zenkolab.com" title="Email">
+              <a href="mailto:josselinprrt@gmail.com" title="Email">
                 <Mail className="h-4 w-4" />
                 <span className="sr-only">Email</span>
               </a>
@@ -47,29 +45,16 @@ function StackedCircularFooter() {
               className="rounded-full"
               asChild
             >
-              <a href="https://linkedin.com/company/zenkolab" title="LinkedIn" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/company/zenkolab-ia/" title="LinkedIn" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="h-4 w-4" />
                 <span className="sr-only">LinkedIn</span>
               </a>
             </Button>
           </div>
-          <div className="mb-8 w-full max-w-md">
-            <form className="flex space-x-2">
-              <div className="flex-grow">
-                <Label htmlFor="email" className="sr-only">
-                  Email
-                </Label>
-                <Input
-                  id="email"
-                  placeholder="votre email"
-                  type="email"
-                  className="rounded-full"
-                />
-              </div>
-              <Button type="submit" className="rounded-full">
-                S'abonner
-              </Button>
-            </form>
+          <div className="mb-8 flex flex-col gap-4 sm:flex-row">
+            <Button className="rounded-full" asChild>
+              <a href="/contact">Demander une démo</a>
+            </Button>
           </div>
           <div className="text-center">
             <p className="text-sm text-muted-foreground">

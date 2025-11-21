@@ -44,11 +44,11 @@ interface Navbar1Props {
     url: string;
   }[];
   auth?: {
-    login: {
+    login?: {
       text: string;
       url: string;
     };
-    signup: {
+    signup?: {
       text: string;
       url: string;
     };
@@ -146,7 +146,7 @@ const Navbar1 = ({
   },
 }: Navbar1Props) => {
   return (
-    <section className="sticky top-0 z-50 py-8 px-6 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <section className="sticky top-0 z-50 py-4 md:py-8 px-6 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="max-w-7xl mx-auto">
         <nav className="hidden justify-between lg:flex">
           <div className="flex items-center gap-8">
@@ -162,18 +162,22 @@ const Navbar1 = ({
             </div>
           </div>
           <div className="flex gap-3">
-            <Button asChild variant="outline" size="lg">
-              <a href={auth.login.url}>{auth.login.text}</a>
-            </Button>
-            <Button asChild size="lg">
-              <a href={auth.signup.url}>{auth.signup.text}</a>
-            </Button>
+            {auth.login && (
+              <Button asChild variant="outline" size="lg">
+                <a href={auth.login.url}>{auth.login.text}</a>
+              </Button>
+            )}
+            {auth.signup && (
+              <Button asChild size="lg">
+                <a href={auth.signup.url}>{auth.signup.text}</a>
+              </Button>
+            )}
           </div>
         </nav>
         <div className="block lg:hidden">
           <div className="flex items-center justify-between">
             <a href={logo.url} className="flex items-center">
-              <img src={logo.src} className="w-16" alt={logo.alt} />
+              <img src={logo.src} className="w-28" alt={logo.alt} />
             </a>
             <Sheet>
               <SheetTrigger asChild>
@@ -185,7 +189,7 @@ const Navbar1 = ({
                 <SheetHeader>
                   <SheetTitle>
                     <a href={logo.url} className="flex items-center">
-                      <img src={logo.src} className="w-16" alt={logo.alt} />
+                      <img src={logo.src} className="w-28" alt={logo.alt} />
                     </a>
                   </SheetTitle>
                 </SheetHeader>
@@ -211,12 +215,16 @@ const Navbar1 = ({
                     </div>
                   </div>
                   <div className="flex flex-col gap-3">
-                    <Button asChild variant="outline">
-                      <a href={auth.login.url}>{auth.login.text}</a>
-                    </Button>
-                    <Button asChild>
-                      <a href={auth.signup.url}>{auth.signup.text}</a>
-                    </Button>
+                    {auth.login && (
+                      <Button asChild variant="outline">
+                        <a href={auth.login.url}>{auth.login.text}</a>
+                      </Button>
+                    )}
+                    {auth.signup && (
+                      <Button asChild>
+                        <a href={auth.signup.url}>{auth.signup.text}</a>
+                      </Button>
+                    )}
                   </div>
                 </div>
               </SheetContent>

@@ -2,11 +2,13 @@
 
 import { HeroSection } from "@/components/blocks/hero-section"
 import { Navbar1 } from "@/components/blocks/navbar1"
-import { GlowingEffectDemo } from "@/components/ui/glowing-effect-demo"
-import { LogoCloud } from "@/components/ui/logo-cloud-2"
-import { StackedCircularFooter } from "@/components/ui/stacked-circular-footer"
 import { Icons } from "@/components/ui/icons"
 import { Book, Sunset, Trees, Zap } from "lucide-react"
+import dynamic from "next/dynamic"
+
+const GlowingEffectDemo = dynamic(() => import("@/components/ui/glowing-effect-demo").then(mod => mod.GlowingEffectDemo))
+const LogoCloud = dynamic(() => import("@/components/ui/logo-cloud-2").then(mod => mod.LogoCloud))
+const StackedCircularFooter = dynamic(() => import("@/components/ui/stacked-circular-footer").then(mod => mod.StackedCircularFooter))
 
 const navbarData = {
   logo: {
@@ -22,56 +24,20 @@ const navbarData = {
     },
     {
       title: "Produit",
-      url: "#",
-      items: [
-        {
-          title: "Fonctionnalités",
-          description: "Découvrez les capacités de ZenkoLab",
-          icon: <Zap className="size-5 shrink-0" />,
-          url: "/produit",
-        },
-        {
-          title: "Tarifs",
-          description: "Choisissez le plan adapté à vos besoins",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "/tarifs",
-        },
-        {
-          title: "Comparaison",
-          description: "Comparez ZenkoLab avec d'autres solutions",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "/comparaison",
-        },
-      ],
+      url: "/produit",
     },
     {
-      title: "Entreprise",
-      url: "#",
-      items: [
-        {
-          title: "À propos",
-          description: "Qui sommes-nous et notre mission",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "/apropos",
-        },
-        {
-          title: "Contact",
-          description: "Nous contacter directement",
-          icon: <Zap className="size-5 shrink-0" />,
-          url: "/contact",
-        },
-      ],
+      title: "Tarifs",
+      url: "/tarifs",
+    },
+    {
+      title: "À propos",
+      url: "/apropos",
     },
   ],
-  mobileExtraLinks: [
-    { name: "Accueil", url: "/" },
-    { name: "Fonctionnalités", url: "/produit" },
-    { name: "Tarifs", url: "/tarifs" },
-    { name: "À propos", url: "/apropos" },
-  ],
+  mobileExtraLinks: [],
   auth: {
-    login: { text: "Nous contacter", url: "/contact" },
-    signup: { text: "Demander une démo", url: "/demo" },
+    signup: { text: "Nous contacter", url: "/contact" },
   },
 };
 
@@ -90,7 +56,7 @@ export default function Home() {
         actions={[
           {
             text: "Demander une démo",
-            href: "/demo",
+            href: "/contact",
             variant: "default",
           },
         ]}

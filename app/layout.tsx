@@ -3,8 +3,8 @@ import "./globals.css";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
-  title: "Zenkolab Landing Page",
-  description: "Build faster with beautiful components",
+  title: "ZenkoLab",
+  description: "Un oeil sur demain, dès aujourd'hui.",
 };
 
 export default function RootLayout({

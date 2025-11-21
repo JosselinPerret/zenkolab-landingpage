@@ -66,8 +66,7 @@ const navbarData = {
     { name: "À propos", url: "/apropos" },
   ],
   auth: {
-    login: { text: "Nous contacter", url: "/contact" },
-    signup: { text: "Demander une démo", url: "/demo" },
+    signup: { text: "Nous contacter", url: "/contact" },
   },
 };
 

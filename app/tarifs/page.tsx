@@ -1,8 +1,11 @@
 "use client"
 
 import { Navbar1 } from "@/components/blocks/navbar1"
-import { StackedCircularFooter } from "@/components/ui/stacked-circular-footer"
 import { Book, Sunset, Trees, Zap } from "lucide-react"
+import dynamic from "next/dynamic"
+
+const StackedCircularFooter = dynamic(() => import("@/components/ui/stacked-circular-footer").then(mod => mod.StackedCircularFooter))
+const Pricing = dynamic(() => import("@/components/ui/single-pricing-card-1").then(mod => mod.Pricing))
 
 const navbarData = {
   logo: {
@@ -18,56 +21,20 @@ const navbarData = {
     },
     {
       title: "Produit",
-      url: "#",
-      items: [
-        {
-          title: "Fonctionnalités",
-          description: "Découvrez les capacités de ZenkoLab",
-          icon: <Zap className="size-5 shrink-0" />,
-          url: "/produit",
-        },
-        {
-          title: "Tarifs",
-          description: "Choisissez le plan adapté à vos besoins",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "/tarifs",
-        },
-        {
-          title: "Comparaison",
-          description: "Comparez ZenkoLab avec d'autres solutions",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "/comparaison",
-        },
-      ],
+      url: "/produit",
     },
     {
-      title: "Entreprise",
-      url: "#",
-      items: [
-        {
-          title: "À propos",
-          description: "Qui sommes-nous et notre mission",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "/apropos",
-        },
-        {
-          title: "Contact",
-          description: "Nous contacter directement",
-          icon: <Zap className="size-5 shrink-0" />,
-          url: "/contact",
-        },
-      ],
+      title: "Tarifs",
+      url: "/tarifs",
+    },
+    {
+      title: "À propos",
+      url: "/apropos",
     },
   ],
-  mobileExtraLinks: [
-    { name: "Accueil", url: "/" },
-    { name: "Fonctionnalités", url: "/produit" },
-    { name: "Tarifs", url: "/tarifs" },
-    { name: "À propos", url: "/apropos" },
-  ],
+  mobileExtraLinks: [],
   auth: {
-    login: { text: "Nous contacter", url: "/contact" },
-    signup: { text: "Demander une démo", url: "/demo" },
+    signup: { text: "Nous contacter", url: "/contact" },
   },
 };
 
@@ -75,22 +42,8 @@ export default function TarifsPage() {
   return (
     <>
       <Navbar1 {...navbarData} />
-      <main className="min-h-screen">
-        <section className="py-20 px-6">
-          <div className="max-w-7xl mx-auto">
-            <h1 className="text-5xl font-bold mb-6">Tarifs</h1>
-            <p className="text-xl text-muted-foreground mb-12">
-              Choisissez le plan adapté à vos besoins
-            </p>
-            {/* Pricing plans will go here */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="p-6 rounded-lg border border-border">
-                <h3 className="text-xl font-semibold mb-2">Plan Starter</h3>
-                <p className="text-muted-foreground">Description du plan</p>
-              </div>
-            </div>
-          </div>
-        </section>
+      <main className="min-h-screen bg-background">
+        <Pricing />
       </main>
       <StackedCircularFooter />
     </>

@@ -24,19 +24,19 @@ const navbarData = {
           title: "Fonctionnalités",
           description: "Découvrez les capacités de ZenkoLab",
           icon: <Zap className="size-5 shrink-0" />,
-          url: "/features",
+          url: "/produit",
         },
         {
           title: "Tarifs",
           description: "Choisissez le plan adapté à vos besoins",
           icon: <Book className="size-5 shrink-0" />,
-          url: "/pricing",
+          url: "/tarifs",
         },
         {
           title: "Comparaison",
           description: "Comparez ZenkoLab avec d'autres solutions",
           icon: <Trees className="size-5 shrink-0" />,
-          url: "/comparison",
+          url: "/comparaison",
         },
       ],
     },
@@ -48,7 +48,7 @@ const navbarData = {
           title: "À propos",
           description: "Qui sommes-nous et notre mission",
           icon: <Sunset className="size-5 shrink-0" />,
-          url: "/about",
+          url: "/apropos",
         },
         {
           title: "Contact",
@@ -61,9 +61,9 @@ const navbarData = {
   ],
   mobileExtraLinks: [
     { name: "Accueil", url: "/" },
-    { name: "Fonctionnalités", url: "/features" },
-    { name: "Tarifs", url: "/pricing" },
-    { name: "À propos", url: "/about" },
+    { name: "Fonctionnalités", url: "/produit" },
+    { name: "Tarifs", url: "/tarifs" },
+    { name: "À propos", url: "/apropos" },
   ],
   auth: {
     login: { text: "Nous contacter", url: "/contact" },
@@ -75,51 +75,71 @@ export default function DemoPage() {
   return (
     <>
       <Navbar1 {...navbarData} />
-      <main className="min-h-screen">
+      <main className="min-h-screen bg-background">
         <section className="py-20 px-6">
-          <div className="max-w-7xl mx-auto">
-            <h1 className="text-5xl font-bold mb-6">Demander une démo</h1>
-            <p className="text-xl text-muted-foreground mb-12">
-              Réservez une démonstration personnalisée de ZenkoLab
-            </p>
-            <div className="max-w-2xl">
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center mb-12">
+              <h1 className="text-4xl font-bold mb-4">Réserver une démo</h1>
+              <p className="text-lg text-muted-foreground">
+                Découvrez comment ZenkoLab peut optimiser votre flux de travail en 30 minutes.
+              </p>
+            </div>
+
+            <div className="bg-card border border-border rounded-2xl p-8 shadow-sm">
               <form className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Prénom</label>
-                    <input type="text" className="w-full p-2 border rounded" />
+                  <div className="space-y-2">
+                    <label htmlFor="firstname" className="text-sm font-medium">Prénom</label>
+                    <input
+                      id="firstname"
+                      type="text"
+                      className="w-full p-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
+                    />
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Nom</label>
-                    <input type="text" className="w-full p-2 border rounded" />
+                  <div className="space-y-2">
+                    <label htmlFor="lastname" className="text-sm font-medium">Nom</label>
+                    <input
+                      id="lastname"
+                      type="text"
+                      className="w-full p-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
+                    />
                   </div>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Email</label>
-                  <input type="email" className="w-full p-2 border rounded" />
+
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-sm font-medium">Email professionnel</label>
+                  <input
+                    id="email"
+                    type="email"
+                    className="w-full p-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
+                  />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Entreprise</label>
-                  <input type="text" className="w-full p-2 border rounded" />
+
+                <div className="space-y-2">
+                  <label htmlFor="company" className="text-sm font-medium">Entreprise / Établissement</label>
+                  <input
+                    id="company"
+                    type="text"
+                    className="w-full p-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
+                  />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">
-                    Préférence de date et heure
-                  </label>
-                  <input type="datetime-local" className="w-full p-2 border rounded" />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">
-                    Décrivez vos besoins
-                  </label>
+
+                <div className="space-y-2">
+                  <label htmlFor="needs" className="text-sm font-medium">Vos besoins spécifiques</label>
                   <textarea
-                    className="w-full p-2 border rounded"
-                    rows={5}
-                  ></textarea>
+                    id="needs"
+                    rows={3}
+                    className="w-full p-3 rounded-lg border border-input bg-background focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all resize-none"
+                  />
                 </div>
-                <button className="w-full bg-primary text-white p-2 rounded font-medium">
-                  Réserver la démo
+
+                <button className="w-full py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity">
+                  Demander une démo
                 </button>
+
+                <p className="text-xs text-center text-muted-foreground mt-4">
+                  En soumettant ce formulaire, vous acceptez d'être contacté par l'équipe ZenkoLab.
+                </p>
               </form>
             </div>
           </div>

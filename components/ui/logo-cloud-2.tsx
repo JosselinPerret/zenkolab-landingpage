@@ -30,10 +30,7 @@ export function LogoCloud({ className, ...props }: LogoCloudProps) {
 
           <LogoCard
             className="relative border-r border-b bg-secondary dark:bg-secondary/30"
-            logo={{
-              src: "https://svgl.app/library/nvidia-wordmark-light.svg",
-              alt: "Nvidia Logo",
-            }}
+            text="21st"
           >
             <PlusIcon
               className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6"
@@ -43,18 +40,12 @@ export function LogoCloud({ className, ...props }: LogoCloudProps) {
 
           <LogoCard
             className="border-b md:border-r"
-            logo={{
-              src: "https://svgl.app/library/supabase_wordmark_light.svg",
-              alt: "Supabase Logo",
-            }}
+            text="CentraleSupélec"
           />
 
           <LogoCard
             className="relative border-r border-b md:bg-secondary dark:md:bg-secondary/30"
-            logo={{
-              src: "https://svgl.app/library/github_wordmark_light.svg",
-              alt: "GitHub Logo",
-            }}
+            text="DocRezo"
           >
             <PlusIcon
               className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6"
@@ -68,18 +59,12 @@ export function LogoCloud({ className, ...props }: LogoCloudProps) {
 
           <LogoCard
             className="relative border-b bg-secondary md:bg-background dark:bg-secondary/30 md:dark:bg-background"
-            logo={{
-              src: "https://svgl.app/library/openai_wordmark_light.svg",
-              alt: "OpenAI Logo",
-            }}
+            text="Inria"
           />
 
           <LogoCard
             className="relative border-r border-b bg-secondary md:border-b-0 md:bg-background dark:bg-secondary/30 md:dark:bg-background"
-            logo={{
-              src: "https://svgl.app/library/turso-wordmark-light.svg",
-              alt: "Turso Logo",
-            }}
+            text="APHP"
           >
             <PlusIcon
               className="-right-[12.5px] -bottom-[12.5px] md:-left-[12.5px] absolute z-10 size-6 md:hidden"
@@ -89,26 +74,17 @@ export function LogoCloud({ className, ...props }: LogoCloudProps) {
 
           <LogoCard
             className="border-b bg-background md:border-r md:border-b-0 md:bg-secondary dark:md:bg-secondary/30"
-            logo={{
-              src: "https://svgl.app/library/clerk-wordmark-light.svg",
-              alt: "Clerk Logo",
-            }}
+            text="Sponsor"
           />
 
           <LogoCard
             className="border-r"
-            logo={{
-              src: "https://svgl.app/library/claude-ai-wordmark-icon_light.svg",
-              alt: "Claude AI Logo",
-            }}
+            text="Sponsor"
           />
 
           <LogoCard
             className="bg-secondary dark:bg-secondary/30"
-            logo={{
-              src: "https://svgl.app/library/vercel_wordmark.svg",
-              alt: "Vercel Logo",
-            }}
+            text="Sponsor"
           />
 
           <div className="-translate-x-1/2 -bottom-px pointer-events-none absolute left-1/2 w-screen border-b" />
@@ -119,10 +95,11 @@ export function LogoCloud({ className, ...props }: LogoCloudProps) {
 }
 
 type LogoCardProps = React.ComponentProps<"div"> & {
-  logo: Logo;
+  logo?: Logo;
+  text?: string;
 };
 
-function LogoCard({ logo, className, children, ...props }: LogoCardProps) {
+function LogoCard({ logo, text, className, children, ...props }: LogoCardProps) {
   return (
     <div
       className={cn(
@@ -131,13 +108,17 @@ function LogoCard({ logo, className, children, ...props }: LogoCardProps) {
       )}
       {...props}
     >
-      <img
-        alt={logo.alt}
-        className="pointer-events-none h-4 select-none md:h-5 dark:brightness-0 dark:invert"
-        height={logo.height || "auto"}
-        src={logo.src}
-        width={logo.width || "auto"}
-      />
+      {logo ? (
+        <img
+          alt={logo.alt}
+          className="pointer-events-none h-4 select-none md:h-5 dark:brightness-0 dark:invert"
+          height={logo.height || "auto"}
+          src={logo.src}
+          width={logo.width || "auto"}
+        />
+      ) : (
+        <span className="text-lg font-bold text-muted-foreground/80">{text}</span>
+      )}
       {children}
     </div>
   );
