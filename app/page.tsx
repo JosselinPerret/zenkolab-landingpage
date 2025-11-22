@@ -7,6 +7,7 @@ import { Book, Sunset, Trees, Zap } from "lucide-react"
 import dynamic from "next/dynamic"
 
 const GlowingEffectDemo = dynamic(() => import("@/components/ui/glowing-effect-demo").then(mod => mod.GlowingEffectDemo))
+const AiPipelineSection = dynamic(() => import("@/components/ai-pipeline/ai-pipeline-section").then(mod => mod.AiPipelineSection))
 const LogoCloud = dynamic(() => import("@/components/ui/logo-cloud-2").then(mod => mod.LogoCloud))
 const StackedCircularFooter = dynamic(() => import("@/components/ui/stacked-circular-footer").then(mod => mod.StackedCircularFooter))
 
@@ -47,7 +48,7 @@ export default function Home() {
       <Navbar1 {...navbarData} />
       <HeroSection
         badge={{
-          text: "200K+",
+          text: "500K+",
           suffix: "dossiers patient déjà analysés",
           action: null,
         }}
@@ -67,6 +68,7 @@ export default function Home() {
         }}
       />
       <GlowingEffectDemo />
+      <AiPipelineSection />
       <LogoCloud />
       <StackedCircularFooter />
     </main>

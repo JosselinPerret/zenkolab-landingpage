@@ -1,15 +1,13 @@
 import { Icons } from "@/components/ui/icons"
 import { Button } from "@/components/ui/button"
+import { RainbowButton } from "@/components/ui/rainbow-button"
 import { Mail, Linkedin } from "lucide-react"
 
 function StackedCircularFooter() {
   return (
-    <footer className="bg-background py-12">
+    <footer className="border-t bg-secondary py-8">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center">
-          <div className="mb-8 rounded-full bg-primary/10 p-8">
-            <Icons.logo className="icon-class w-6" />
-          </div>
           <nav className="mb-8 flex flex-wrap justify-center gap-6">
             <a href="/" className="hover:text-primary">
               Accueil
@@ -27,7 +25,7 @@ function StackedCircularFooter() {
               Contact
             </a>
           </nav>
-          <div className="mb-8 flex space-x-4">
+          <div className="mb-8 flex flex-wrap items-center justify-center gap-4">
             <Button 
               variant="outline" 
               size="icon" 
@@ -50,15 +48,13 @@ function StackedCircularFooter() {
                 <span className="sr-only">LinkedIn</span>
               </a>
             </Button>
-          </div>
-          <div className="mb-8 flex flex-col gap-4 sm:flex-row">
-            <Button className="rounded-full" asChild>
+            <RainbowButton className="rounded-full h-10 px-6" asChild>
               <a href="/contact">Demander une démo</a>
-            </Button>
+            </RainbowButton>
           </div>
           <div className="text-center">
             <p className="text-sm text-muted-foreground">
-              © 2024 ZenkoLab. Tous droits réservés.
+              © 2025 ZenkoLab. Tous droits réservés.
             </p>
           </div>
         </div>

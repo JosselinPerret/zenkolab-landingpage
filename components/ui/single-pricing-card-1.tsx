@@ -44,7 +44,7 @@ export function Pricing() {
 						whileInView={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
 						viewport={{ once: true }}
-						className="mx-auto w-full max-w-2xl space-y-2"
+						className="mx-auto w-full max-w-2xl"
 					>	
 						<div className="grid md:grid-cols-2 bg-background relative border p-4">
 							<PlusIcon className="absolute -top-3 -left-3  size-5.5" />
@@ -103,7 +103,7 @@ export function Pricing() {
 							</div>
 						</div>
 
-						<div className="text-muted-foreground flex items-center justify-center gap-x-2 text-sm">
+						<div className="text-muted-foreground flex items-center justify-center gap-x-2 text-sm mt-6">
 							<ShieldCheckIcon className="size-4" />
 							<span>Accès à toutes les fonctionnalités sans frais cachés</span>
 						</div>

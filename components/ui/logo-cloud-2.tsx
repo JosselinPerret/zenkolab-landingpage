@@ -21,7 +21,7 @@ export function LogoCloud({ className, ...props }: LogoCloudProps) {
         </div>
         <div
           className={cn(
-            "relative grid grid-cols-2 border-x md:grid-cols-4",
+            "relative grid grid-cols-2 border-x md:grid-cols-3",
             className
           )}
           {...props}
@@ -44,11 +44,11 @@ export function LogoCloud({ className, ...props }: LogoCloudProps) {
           />
 
           <LogoCard
-            className="relative border-r border-b md:bg-secondary dark:md:bg-secondary/30"
+            className="relative border-r border-b md:border-r-0 md:bg-secondary dark:md:bg-secondary/30"
             text="DocRezo"
           >
             <PlusIcon
-              className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6"
+              className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 md:hidden"
               strokeWidth={1}
             />
             <PlusIcon
@@ -58,12 +58,12 @@ export function LogoCloud({ className, ...props }: LogoCloudProps) {
           </LogoCard>
 
           <LogoCard
-            className="relative border-b bg-secondary md:bg-background dark:bg-secondary/30 md:dark:bg-background"
+            className="relative border-b bg-secondary md:border-r md:border-b-0 md:bg-background dark:bg-secondary/30 md:dark:bg-background"
             text="Inria"
           />
 
           <LogoCard
-            className="relative border-r border-b bg-secondary md:border-b-0 md:bg-background dark:bg-secondary/30 md:dark:bg-background"
+            className="relative border-r border-b bg-secondary md:border-b-0 md:bg-secondary dark:bg-secondary/30 md:dark:bg-secondary/30"
             text="APHP"
           >
             <PlusIcon
@@ -73,18 +73,8 @@ export function LogoCloud({ className, ...props }: LogoCloudProps) {
           </LogoCard>
 
           <LogoCard
-            className="border-b bg-background md:border-r md:border-b-0 md:bg-secondary dark:md:bg-secondary/30"
-            text="Sponsor"
-          />
-
-          <LogoCard
-            className="border-r"
-            text="Sponsor"
-          />
-
-          <LogoCard
-            className="bg-secondary dark:bg-secondary/30"
-            text="Sponsor"
+            className="border-b bg-background md:border-r-0 md:border-b-0 md:bg-background dark:md:bg-background"
+            text="Université Paris-Saclay"
           />
 
           <div className="-translate-x-1/2 -bottom-px pointer-events-none absolute left-1/2 w-screen border-b" />

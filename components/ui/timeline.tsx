@@ -61,8 +61,13 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl font-bold">
           Démonstration
         </h2>
-        <div className="w-full aspect-video bg-neutral-200 dark:bg-neutral-800 rounded-lg mb-20 flex items-center justify-center">
-          <span className="text-neutral-500">Video Placeholder</span>
+        <div className="w-full aspect-video bg-neutral-200 dark:bg-neutral-800 rounded-lg mb-20 flex items-center justify-center overflow-hidden shadow-2xl border border-neutral-200 dark:border-neutral-800">
+          <iframe 
+            src="https://drive.google.com/file/d/1G_-o5uwwzF0PpZKLAn0VwkT8Ck0J0iYt/preview" 
+            className="w-full h-full" 
+            allow="autoplay; fullscreen"
+            title="Zenkolab Product Demo"
+          ></iframe>
         </div>
 
         <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl font-bold">
