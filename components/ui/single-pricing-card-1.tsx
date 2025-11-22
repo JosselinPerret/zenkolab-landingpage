@@ -21,9 +21,12 @@ export function Pricing() {
 					<div className="flex justify-center">
 						<div className="rounded-lg border px-4 py-1 font-mono">Tarifs</div>
 					</div>
-					<h2 className="mt-5 text-center text-2xl font-bold tracking-tighter md:text-3xl lg:text-4xl">
-						Une offre adaptée à vos besoins
-					</h2>
+					<div className="text-center">
+						<h2 className="mt-5 text-4xl md:text-5xl font-bold text-foreground tracking-tight">
+							Une offre adaptée à vos besoins
+						</h2>
+						<div className="h-1.5 bg-blue-600 mx-auto rounded-full mt-4 mb-6 w-[100px]" />
+					</div>
 					<p className="text-muted-foreground mt-5 text-center text-sm md:text-base">
 						Nous proposons des solutions sur mesure pour les professionnels de santé et les établissements.
 					</p>

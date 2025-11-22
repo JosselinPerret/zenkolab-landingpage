@@ -9,6 +9,7 @@ import { Glow } from "@/components/ui/glow";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 interface HeroAction {
   text: string;
@@ -58,34 +59,55 @@ export function HeroSection({
         <div className="flex flex-col items-center gap-2 text-center sm:gap-4">
           {/* Badge */}
           {badge && (
-            <Badge variant="outline" className="animate-appear gap-2">
-              <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text font-semibold text-transparent">
-                {badge.text}
-              </span>
-              {badge.suffix && (
-                <span className="text-muted-foreground">{badge.suffix}</span>
-              )}
-              {badge.action && (
-                <a href={badge.action.href} className="flex items-center gap-1">
-                  {badge.action.text}
-                  <ArrowRightIcon className="h-3 w-3" />
-                </a>
-              )}
-            </Badge>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Badge variant="outline" className="gap-2">
+                <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text font-semibold text-transparent">
+                  {badge.text}
+                </span>
+                {badge.suffix && (
+                  <span className="text-muted-foreground">{badge.suffix}</span>
+                )}
+                {badge.action && (
+                  <a href={badge.action.href} className="flex items-center gap-1">
+                    {badge.action.text}
+                    <ArrowRightIcon className="h-3 w-3" />
+                  </a>
+                )}
+              </Badge>
+            </motion.div>
           )}
 
           {/* Title */}
-          <h1 className="relative z-10 inline-block animate-appear bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-4xl font-semibold leading-tight text-transparent drop-shadow-2xl sm:text-6xl sm:leading-tight md:text-8xl md:leading-tight">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="relative z-10 inline-block bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-4xl font-semibold leading-tight text-transparent drop-shadow-2xl sm:text-6xl sm:leading-tight md:text-8xl md:leading-tight"
+          >
             {title}
-          </h1>
+          </motion.h1>
 
           {/* Description */}
-          <p className="text-md relative z-10 max-w-[550px] animate-appear font-medium text-muted-foreground opacity-0 delay-100 sm:text-xl">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-md relative z-10 max-w-[550px] font-medium text-muted-foreground sm:text-xl"
+          >
             {description}
-          </p>
+          </motion.p>
 
           {/* Actions */}
-          <div className="relative z-10 flex animate-appear justify-center gap-4 opacity-0 delay-300">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="relative z-10 flex justify-center gap-4"
+          >
             {actions.map((action, index) => {
               if (index === 0) {
                 return (
@@ -106,28 +128,40 @@ export function HeroSection({
                 </Button>
               );
             })}
-          </div>
+          </motion.div>
 
           {/* Image with Glow */}
           <div className="relative pt-12">
             <MockupFrame
-              className="animate-appear opacity-0 delay-700"
+              className=""
               size="small"
             >
-              <Mockup type="responsive">
-                <Image
-                  src={imageSrc}
-                  alt={image.alt}
-                  width={1248}
-                  height={765}
-                  priority
-                />
-              </Mockup>
+                <motion.div
+                    initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+                >
+                  <Mockup type="responsive">
+                    <Image
+                      src={imageSrc}
+                      alt={image.alt}
+                      width={1248}
+                      height={765}
+                      priority
+                    />
+                  </Mockup>
+              </motion.div>
             </MockupFrame>
-            <Glow
-              variant="top"
-              className="animate-appear-zoom opacity-0 delay-1000"
-            />
+            <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: 0.8 }}
+            >
+                <Glow
+                variant="top"
+                className="opacity-100"
+                />
+            </motion.div>
           </div>
         </div>
       </div>

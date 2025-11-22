@@ -94,10 +94,11 @@ export function HomePipeline() {
     <div className="min-h-screen bg-background text-foreground flex flex-col items-center pt-12 pb-0 px-4 relative">
       
       {/* Header */}
-      <header className="text-center mb-12 max-w-2xl z-30 relative">
-        <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 leading-tight">
+      <header className="text-center mb-12 max-w-5xl z-30 relative">
+        <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight leading-tight">
           Le Parcours de Soin <span className="text-blue-600">Augmenté</span>
         </h1>
+        <div className="h-1.5 bg-blue-600 mx-auto rounded-full mb-6 w-[100px]" />
         <p className="text-muted-foreground text-lg">
           Simulation du pipeline IA de détection des risques en temps réel.
         </p>

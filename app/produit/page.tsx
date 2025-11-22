@@ -2,6 +2,8 @@
 
 import { Navbar1 } from "@/components/blocks/navbar1"
 import dynamic from "next/dynamic"
+import { PathologiesSection } from "@/components/pathologies/pathologies-section"
+import { motion } from "framer-motion"
 
 const StackedCircularFooter = dynamic(() => import("@/components/ui/stacked-circular-footer").then(mod => mod.StackedCircularFooter))
 const AiPipelineSection = dynamic(() => import("@/components/ai-pipeline/ai-pipeline-section").then(mod => mod.AiPipelineSection))
@@ -38,8 +40,6 @@ const navbarData = {
 };
 
 export default function ProduitPage() {
-  const pathologies = ["Glaucome", "DMLA", "Amblyopie", "Cataracte"];
-
   return (
     <>
       <Navbar1 {...navbarData} />
@@ -47,36 +47,37 @@ export default function ProduitPage() {
         <div className="container mx-auto px-4 md:px-6 mb-20">
            {/* Pathologies Section */}
            <div className="mb-20">
-              <h2 className="text-lg md:text-4xl mb-8 text-black dark:text-white max-w-4xl font-bold">
-                Pathologies ciblées
-              </h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {pathologies.map((pathology, index) => (
-                  <div
-                    key={index}
-                    className="p-6 rounded-xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 flex items-center justify-center text-center hover:shadow-md transition-shadow"
-                  >
-                    <span className="text-lg font-semibold text-neutral-800 dark:text-neutral-200">
-                      {pathology}
-                    </span>
-                  </div>
-                ))}
-              </div>
+              <PathologiesSection />
             </div>
 
             {/* Video Section */}
             <div className="mb-20">
-                <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl font-bold">
-                  Démonstration
-                </h2>
-                <div className="w-full aspect-video bg-neutral-200 dark:bg-neutral-800 rounded-lg flex items-center justify-center overflow-hidden shadow-2xl border border-neutral-200 dark:border-neutral-800">
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="text-center mb-12"
+                >
+                  <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4">
+                    Démonstration
+                  </h2>
+                  <div className="h-1.5 bg-blue-600 mx-auto rounded-full mb-6 w-[100px]" />
+                </motion.div>
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="w-full aspect-video bg-muted rounded-lg flex items-center justify-center overflow-hidden shadow-2xl border border-border"
+                >
                   <iframe 
                     src="https://drive.google.com/file/d/1G_-o5uwwzF0PpZKLAn0VwkT8Ck0J0iYt/preview" 
                     className="w-full h-full" 
                     allow="autoplay; fullscreen"
                     title="Zenkolab Product Demo"
                   ></iframe>
-                </div>
+                </motion.div>
             </div>
         </div>
 

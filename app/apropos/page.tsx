@@ -45,7 +45,7 @@ const navbarData = {
 export default function AProposPage() {
   const timelineData = [
     {
-      title: "2023",
+      title: "Septembre 2024",
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
@@ -58,7 +58,7 @@ export default function AProposPage() {
       ),
     },
     {
-      title: "Début 2024",
+      title: "Décembre 2024",
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
@@ -71,7 +71,7 @@ export default function AProposPage() {
       ),
     },
     {
-      title: "Mi-2024",
+      title: "Mars 2025",
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
@@ -84,7 +84,7 @@ export default function AProposPage() {
       ),
     },
     {
-      title: "2025",
+      title: "Septembre 2025",
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
@@ -96,6 +96,19 @@ export default function AProposPage() {
         </div>
       ),
     },
+    {
+      title: "À suivre...",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+            L'avenir s'écrit maintenant
+          </p>
+          <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-8">
+            Nous continuons d'innover pour rendre le dépistage ophtalmologique accessible à tous. Rejoignez-nous dans cette aventure !
+          </p>
+        </div>
+      ),
+    },
   ];
 
   return (
@@ -103,7 +116,7 @@ export default function AProposPage() {
       <Navbar1 {...navbarData} />
       <main className="min-h-screen bg-background overflow-hidden">
         {/* Hero Section */}
-        <section className="relative py-20 md:py-32">
+        <section className="relative py-12 md:py-20">
           <div className="container mx-auto px-4 md:px-6 relative z-10">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -111,7 +124,7 @@ export default function AProposPage() {
               transition={{ duration: 0.6 }}
               className="max-w-3xl mx-auto text-center"
             >
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-6">
                 Réinventer le dépistage <span className="text-primary">ophtalmologique</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed mb-8">
@@ -135,7 +148,7 @@ export default function AProposPage() {
         </section>
 
         {/* Mission Section */}
-        <section className="py-16 bg-muted/30">
+        <section className="py-12 bg-muted/30">
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <motion.div 
@@ -145,7 +158,10 @@ export default function AProposPage() {
                 transition={{ duration: 0.6 }}
                 className="space-y-6"
               >
-                <h2 className="text-3xl font-bold">Notre Mission</h2>
+                <div>
+                  <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4">Notre Mission</h2>
+                  <div className="h-1.5 bg-blue-600 w-[100px] rounded-full mb-6" />
+                </div>
                 <p className="text-lg text-muted-foreground">
                   Face au vieillissement de la population et à la pénurie croissante d'ophtalmologistes, les délais de rendez-vous s'allongent dangereusement.
                 </p>
@@ -170,10 +186,11 @@ export default function AProposPage() {
         </section>
 
         {/* Values Section */}
-        <section className="py-20">
+        <section className="py-12">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold mb-4">Nos Valeurs</h2>
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4">Nos Valeurs</h2>
+              <div className="h-1.5 bg-blue-600 mx-auto rounded-full mb-6 w-[100px]" />
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 Les piliers qui guident le développement de nos solutions au quotidien.
               </p>
@@ -219,16 +236,20 @@ export default function AProposPage() {
         {/* Timeline Section */}
         <section className="py-10 bg-background">
           <div className="container mx-auto px-4 md:px-6">
-             <h2 className="text-3xl font-bold mb-4 text-center">Notre Histoire</h2>
+             <div className="text-center mb-12">
+               <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4">Notre Histoire</h2>
+               <div className="h-1.5 bg-blue-600 mx-auto rounded-full mb-6 w-[100px]" />
+             </div>
              <Timeline data={timelineData} />
           </div>
         </section>
 
         {/* Founders Section */}
-        <section className="py-20 bg-muted/30">
+        <section className="py-12 bg-muted/30">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold mb-4">L'équipe fondatrice</h2>
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4">L'équipe fondatrice</h2>
+              <div className="h-1.5 bg-blue-600 mx-auto rounded-full mb-6 w-[100px]" />
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 Une alliance complémentaire entre expertise technique et vision stratégique.
               </p>
@@ -325,9 +346,9 @@ export default function AProposPage() {
         <LogoCloud />
 
         {/* CTA Section */}
-        <section className="py-20 bg-primary/5">
+        <section className="py-12 bg-primary/5">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Prêt à rejoindre l'aventure ?</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-6">Prêt à rejoindre l'aventure ?</h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               Que vous soyez un professionnel de santé ou un partenaire potentiel, nous serions ravis d'échanger avec vous.
             </p>
