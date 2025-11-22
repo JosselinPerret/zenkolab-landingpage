@@ -40,42 +40,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       ref={containerRef}
     >
       <div className="max-w-7xl mx-auto pt-0 md:pt-20 pb-0 px-4 md:px-8 lg:px-10">
-        <div className="mb-20">
-          <h2 className="text-lg md:text-4xl mb-8 text-black dark:text-white max-w-4xl font-bold">
-            Pathologies ciblées
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {pathologies.map((pathology, index) => (
-              <div
-                key={index}
-                className="p-6 rounded-xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 flex items-center justify-center text-center hover:shadow-md transition-shadow"
-              >
-                <span className="text-lg font-semibold text-neutral-800 dark:text-neutral-200">
-                  {pathology}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl font-bold">
-          Démonstration
-        </h2>
-        <div className="w-full aspect-video bg-neutral-200 dark:bg-neutral-800 rounded-lg mb-20 flex items-center justify-center overflow-hidden shadow-2xl border border-neutral-200 dark:border-neutral-800">
-          <iframe 
-            src="https://drive.google.com/file/d/1G_-o5uwwzF0PpZKLAn0VwkT8Ck0J0iYt/preview" 
-            className="w-full h-full" 
-            allow="autoplay; fullscreen"
-            title="Zenkolab Product Demo"
-          ></iframe>
-        </div>
-
-        <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl font-bold">
-          Notre Pipeline IA
-        </h2>
-        <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
-          Une technologie de pointe, de l&apos;acquisition à la restitution.
-        </p>
+        {/* Header content removed to make component generic */}
       </div>
 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">

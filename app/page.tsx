@@ -9,6 +9,7 @@ import dynamic from "next/dynamic"
 const GlowingEffectDemo = dynamic(() => import("@/components/ui/glowing-effect-demo").then(mod => mod.GlowingEffectDemo))
 const LogoCloud = dynamic(() => import("@/components/ui/logo-cloud-2").then(mod => mod.LogoCloud))
 const StackedCircularFooter = dynamic(() => import("@/components/ui/stacked-circular-footer").then(mod => mod.StackedCircularFooter))
+const HomePipeline = dynamic(() => import("@/components/home-pipeline/home-pipeline").then(mod => mod.HomePipeline))
 
 const navbarData = {
   logo: {
@@ -67,6 +68,7 @@ export default function Home() {
         }}
       />
       <GlowingEffectDemo />
+      <HomePipeline />
       <LogoCloud />
       <StackedCircularFooter />
     </main>
