@@ -1,4 +1,5 @@
 import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
+import { motion } from "framer-motion";
 
 import {
   Accordion,
@@ -193,15 +194,45 @@ const Navbar1 = ({
                     </a>
                   </SheetTitle>
                 </SheetHeader>
-                <div className="my-6 flex flex-col gap-6">
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: {
+                      opacity: 1,
+                      transition: {
+                        staggerChildren: 0.1,
+                        delayChildren: 0.2,
+                      },
+                    },
+                  }}
+                  className="my-6 flex flex-col gap-6"
+                >
                   <Accordion
                     type="single"
                     collapsible
                     className="flex w-full flex-col gap-4"
                   >
-                    {menu.map((item) => renderMobileMenuItem(item))}
+                    {menu.map((item) => (
+                      <motion.div
+                        key={item.title}
+                        variants={{
+                          hidden: { opacity: 0, x: -20 },
+                          visible: { opacity: 1, x: 0 },
+                        }}
+                      >
+                        {renderMobileMenuItem(item)}
+                      </motion.div>
+                    ))}
                   </Accordion>
-                  <div className="border-t py-4">
+                  <motion.div
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      visible: { opacity: 1, y: 0 },
+                    }}
+                    className="border-t py-4"
+                  >
                     <div className="grid grid-cols-2 justify-start">
                       {mobileExtraLinks.map((link, idx) => (
                         <a
@@ -213,8 +244,14 @@ const Navbar1 = ({
                         </a>
                       ))}
                     </div>
-                  </div>
-                  <div className="flex flex-col gap-3">
+                  </motion.div>
+                  <motion.div
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      visible: { opacity: 1, y: 0 },
+                    }}
+                    className="flex flex-col gap-3"
+                  >
                     {auth.login && (
                       <Button asChild variant="outline">
                         <a href={auth.login.url}>{auth.login.text}</a>
@@ -225,8 +262,8 @@ const Navbar1 = ({
                         <a href={auth.signup.url}>{auth.signup.text}</a>
                       </Button>
                     )}
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               </SheetContent>
             </Sheet>
           </div>
