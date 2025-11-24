@@ -1,35 +1,72 @@
 import { NextResponse } from 'next/server';
+import { EmailClient } from "@azure/communication-email";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
     const { firstname, lastname, email, company, role, subject, message } = body;
 
-    // Ici, vous pouvez intégrer votre logique d'envoi d'email.
-    // Options courantes sur Azure :
-    // 1. Azure Communication Services (Email)
-    // 2. SendGrid (Marketplace Azure)
-    // 3. Nodemailer avec un compte SMTP (Outlook, Gmail, etc.)
+    const connectionString = process.env.AZURE_COMMUNICATION_CONNECTION_STRING;
+    const senderAddress = process.env.AZURE_SENDER_EMAIL;
+    const recipientAddress = process.env.RECIPIENT_EMAIL;
 
-    // Exemple de log pour le moment (visible dans les logs Azure/Vercel)
-    console.log('Nouveau message de contact :', {
-      firstname,
-      lastname,
-      email,
-      company,
-      role,
-      subject,
-      message
-    });
+    if (!connectionString || !senderAddress || !recipientAddress) {
+      throw new Error("Configuration Azure manquante (Connection String, Sender ou Recipient)");
+    }
 
-    // Simulation d'un délai d'envoi
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    const client = new EmailClient(connectionString);
 
-    return NextResponse.json({ success: true, message: "Message reçu" });
+    const emailMessage = {
+      senderAddress: senderAddress,
+      content: {
+        subject: `Nouveau contact Zenkolab : ${subject}`,
+        plainText: `
+          Nouveau message de contact reçu via le site web.
+          
+          De: ${firstname} ${lastname}
+          Email: ${email}
+          Entreprise: ${company}
+          Rôle: ${role}
+          
+          Message:
+          ${message}
+        `,
+        html: `
+          <html>
+            <body>
+              <h1>Nouveau message de contact</h1>
+              <ul>
+                <li><strong>Nom:</strong> ${firstname} ${lastname}</li>
+                <li><strong>Email:</strong> ${email}</li>
+                <li><strong>Entreprise:</strong> ${company}</li>
+                <li><strong>Rôle:</strong> ${role}</li>
+                <li><strong>Sujet:</strong> ${subject}</li>
+              </ul>
+              <h2>Message:</h2>
+              <p>${message.replace(/\n/g, '<br>')}</p>
+            </body>
+          </html>
+        `,
+      },
+      recipients: {
+        to: [{ address: recipientAddress }],
+      },
+    };
+
+    const poller = await client.beginSend(emailMessage);
+    // On attend que l'envoi soit confirmé (optionnel, peut être long)
+    // await poller.pollUntilDone(); 
+    
+    // Pour une réponse plus rapide, on n'attend pas la confirmation finale si le poller a démarré avec succès
+    if (!poller.getOperationState().isStarted) {
+        throw new Error("L'envoi de l'email n'a pas pu démarrer.");
+    }
+
+    return NextResponse.json({ success: true, message: "Message envoyé avec succès" });
   } catch (error) {
-    console.error('Erreur lors du traitement du formulaire:', error);
+    console.error('Erreur lors de l\'envoi de l\'email:', error);
     return NextResponse.json(
-      { success: false, message: "Une erreur est survenue" },
+      { success: false, message: "Une erreur est survenue lors de l'envoi" },
       { status: 500 }
     );
   }

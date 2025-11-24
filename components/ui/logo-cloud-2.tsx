@@ -6,6 +6,7 @@ type Logo = {
   alt: string;
   width?: number;
   height?: number;
+  className?: string;
 };
 
 type LogoCloudProps = React.ComponentProps<"div">;
@@ -30,7 +31,11 @@ export function LogoCloud({ className, ...props }: LogoCloudProps) {
 
           <LogoCard
             className="relative border-r border-b bg-secondary dark:bg-secondary/30"
-            text="21st"
+            logo={{
+              src: "/21st.png",
+              alt: "21st",
+              className: "h-10 w-auto md:h-16",
+            }}
           >
             <PlusIcon
               className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6"
@@ -40,12 +45,20 @@ export function LogoCloud({ className, ...props }: LogoCloudProps) {
 
           <LogoCard
             className="border-b md:border-r"
-            text="CentraleSupélec"
+            logo={{
+              src: "https://upload.wikimedia.org/wikipedia/fr/8/86/Logo_CentraleSup%C3%A9lec.svg",
+              alt: "CentraleSupélec",
+              className: "h-12 w-auto md:h-20",
+            }}
           />
 
           <LogoCard
             className="relative border-r border-b md:border-r-0 md:bg-secondary dark:md:bg-secondary/30"
-            text="DocRezo"
+            logo={{
+              src: "/docrezo.png",
+              alt: "DocRezo",
+              className: "h-10 w-auto md:h-16",
+            }}
           >
             <PlusIcon
               className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 md:hidden"
@@ -59,12 +72,20 @@ export function LogoCloud({ className, ...props }: LogoCloudProps) {
 
           <LogoCard
             className="relative border-b bg-secondary md:border-r md:border-b-0 md:bg-background dark:bg-secondary/30 md:dark:bg-background"
-            text="Inria"
+            logo={{
+              src: "https://upload.wikimedia.org/wikipedia/commons/9/95/Inr_logo_rouge.svg",
+              alt: "Inria",
+              className: "h-10 w-auto md:h-16",
+            }}
           />
 
           <LogoCard
             className="relative border-r border-b bg-secondary md:border-b-0 md:bg-secondary dark:bg-secondary/30 md:dark:bg-secondary/30"
-            text="APHP"
+            logo={{
+              src: "/aphp.png",
+              alt: "APHP",
+              className: "h-10 w-auto md:h-16",
+            }}
           >
             <PlusIcon
               className="-right-[12.5px] -bottom-[12.5px] md:-left-[12.5px] absolute z-10 size-6 md:hidden"
@@ -74,7 +95,11 @@ export function LogoCloud({ className, ...props }: LogoCloudProps) {
 
           <LogoCard
             className="border-b bg-background md:border-r-0 md:border-b-0 md:bg-background dark:md:bg-background"
-            text="Université Paris-Saclay"
+            logo={{
+              src: "https://upload.wikimedia.org/wikipedia/commons/c/c4/Logo_Universit%C3%A9_Paris-Saclay_2019-12.svg",
+              alt: "Université Paris-Saclay",
+              className: "h-12 w-auto md:h-20",
+            }}
           />
 
           <div className="-translate-x-1/2 -bottom-px pointer-events-none absolute left-1/2 w-screen border-b" />
@@ -101,7 +126,10 @@ function LogoCard({ logo, text, className, children, ...props }: LogoCardProps) 
       {logo ? (
         <img
           alt={logo.alt}
-          className="pointer-events-none h-4 select-none md:h-5 dark:brightness-0 dark:invert"
+          className={cn(
+            "pointer-events-none select-none dark:brightness-0 dark:invert object-contain",
+            logo.className || "h-4 md:h-5"
+          )}
           height={logo.height || "auto"}
           src={logo.src}
           width={logo.width || "auto"}

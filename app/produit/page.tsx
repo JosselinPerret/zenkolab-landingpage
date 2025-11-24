@@ -47,7 +47,7 @@ export default function ProduitPage() {
         <div className="container mx-auto px-4 md:px-6 mb-20">
            {/* Pathologies Section */}
            <div className="mb-20">
-              <PathologiesSection />
+              <PathologiesSection key="pathologies-updated" />
             </div>
 
             {/* Video Section */}

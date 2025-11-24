@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Eye, Scan, Glasses, Sun } from 'lucide-react';
+import { Eye, Scan, Activity } from 'lucide-react';
 import PathologyCard from './pathology-card';
 import InfoModal from './info-modal';
 import { Pathology } from './types';
@@ -41,35 +41,19 @@ Bien qu'il n'existe pas de remède définitif pour la forme sèche, la prise de 
     color: 'bg-blue-600'
   },
   {
-    id: 'amblyopie',
-    title: 'Amblyopie',
-    shortDescription: 'Trouble du développement visuel, souvent appelé "œil paresseux".',
+    id: 'retinopathie',
+    title: 'Rétinopathie diabétique',
+    shortDescription: 'Complication du diabète affectant les vaisseaux sanguins de la rétine.',
     details: `
-L'amblyopie, communément appelée « œil paresseux », est un trouble du développement visuel où un œil ne parvient pas à atteindre une acuité visuelle normale, même avec des lunettes de correction. Le cerveau favorise l'autre œil, ignorant les signaux de l'œil plus faible.
+La rétinopathie diabétique est une complication du diabète qui affecte les yeux. Elle est causée par des dommages aux vaisseaux sanguins du tissu sensible à la lumière situé au fond de l'œil (la rétine).
 
-**Symptômes clés :** 
-Mauvaise perception de la profondeur, tendance à fermer un œil ou à plisser les yeux, ou un œil qui semble errer vers l'intérieur ou l'extérieur.
+**Symptômes clés :**
+Au début, la rétinopathie diabétique peut ne causer aucun symptôme ou seulement de légers problèmes de vision. À terme, elle peut entraîner la cécité. Les symptômes peuvent inclure des taches ou des fils foncés flottant dans votre vision (corps flottants), une vision floue, une vision fluctuante, des zones sombres ou vides dans votre vision et une perte de vision.
 
-**Traitement :** 
-Le traitement est plus efficace s'il est commencé tôt dans l'enfance. Il consiste généralement à obliger l'œil paresseux à travailler en cachant le « bon » œil avec un pansement (occlusion) ou en utilisant des gouttes pour brouiller la vision du bon œil.
+**Prévention et Traitement :**
+La meilleure façon de prévenir la perte de vision est de gérer soigneusement votre diabète. Le traitement peut inclure des injections de médicaments dans l'œil, un traitement au laser ou une intervention chirurgicale (vitrectomie).
     `,
-    icon: <Glasses size={32} />,
-    color: 'bg-blue-600'
-  },
-  {
-    id: 'cataracte',
-    title: 'Cataracte',
-    shortDescription: 'Opacification progressive du cristallin entraînant une baisse de vision.',
-    details: `
-La cataracte est l'opacification du cristallin, la lentille naturelle de l'œil qui se trouve derrière l'iris et la pupille. Avec l'âge, les protéines du cristallin commencent à se dégrader et à s'agglutiner, formant des zones troubles.
-
-**Symptômes clés :** 
-Vision brouillée (comme si l'on regardait à travers une vitre sale ou givrée), sensibilité accrue à la lumière et aux éblouissements, vision double dans un seul œil et ternissement des couleurs.
-
-**Traitement :** 
-Lorsque la cataracte commence à gêner les activités quotidiennes, la chirurgie est le seul traitement efficace. Elle consiste à retirer le cristallin opacifié et à le remplacer par un implant artificiel transparent (lentille intraoculaire).
-    `,
-    icon: <Sun size={32} />,
+    icon: <Activity size={32} />,
     color: 'bg-blue-600'
   }
 ];
@@ -133,7 +117,7 @@ export const PathologiesSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {PATHOLOGIES.map((pathology, index) => (
             <PathologyCard 

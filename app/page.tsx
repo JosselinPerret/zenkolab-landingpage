@@ -48,7 +48,7 @@ export default function Home() {
       <Navbar1 {...navbarData} />
       <HeroSection
         badge={{
-          text: "500K+",
+          text: "200K+",
           suffix: "dossiers patient déjà analysés",
           action: null,
         }}
