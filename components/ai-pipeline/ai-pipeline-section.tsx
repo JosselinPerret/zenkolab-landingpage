@@ -43,8 +43,8 @@ export function AiPipelineSection() {
   }, [isPlaying, goToNext]);
 
   return (
-    <section className="py-16 bg-white text-black selection:bg-blue-100 selection:text-blue-900">
-      <div className="container mx-auto px-8 md:px-16 lg:px-40">
+    <section className="pt-0 pb-16 bg-white text-black selection:bg-blue-100 selection:text-blue-900">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
               Pipeline IA
