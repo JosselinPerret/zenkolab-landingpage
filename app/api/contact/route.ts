@@ -54,15 +54,15 @@ export async function POST(request: Request) {
     };
 
     const poller = await client.beginSend(emailMessage);
-    // On attend que l'envoi soit confirmé (optionnel, peut être long)
-    // await poller.pollUntilDone(); 
     
-    // Pour une réponse plus rapide, on n'attend pas la confirmation finale si le poller a démarré avec succès
-    if (!poller.getOperationState().isStarted) {
-        throw new Error("L'envoi de l'email n'a pas pu démarrer.");
-    }
+    // On attend la confirmation pour être sûr que l'email est parti (évite les erreurs silencieuses)
+    const result = await poller.pollUntilDone();
 
-    return NextResponse.json({ success: true, message: "Message envoyé avec succès" });
+    if (result.status === "Succeeded") {
+      return NextResponse.json({ success: true, message: "Message envoyé avec succès" });
+    } else {
+      throw new Error(`L'envoi a échoué avec le statut: ${result.status}`);
+    }
   } catch (error) {
     console.error('Erreur lors de l\'envoi de l\'email:', error);
     return NextResponse.json(
