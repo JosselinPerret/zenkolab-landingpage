@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://www.zenkolab.com/sitemap.xml',
+    sitemap: 'https://www.zenkolab.dev/sitemap.xml',
   }
 }
